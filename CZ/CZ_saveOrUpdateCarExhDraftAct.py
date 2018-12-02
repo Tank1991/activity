@@ -1,8 +1,10 @@
 import requests
 import urllib3
 urllib3.disable_warnings()
-#车展活动的查询
-url = "https://test102.maxuscloud.cn/ampService/activityWebController/queryActivityListByParam"
+#新增车展活动
+
+url = "https://test102.maxuscloud.cn/ampService/actCarExhInfoWebController/saveOrUpdateCarExhDraftAct"
+
 
 headers = {
     "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36",
@@ -10,23 +12,33 @@ headers = {
     "Content-Type":"application/json;charset=UTF-8"
 }
 
-body = {"start":0,"length":5,"activityType":10141002}
+body = {"activityDto":
+            {"id":"",
+             "activityName":"接口测试",
+             "activityType":10141002,
+             "activityMode":"RV80B,T60,MV80",
+             "firstSource":10000000000002,
+             "secondSource":10000000000007,
+             "content":"123活动简述",
+             "beginTimeString":"2018-12-01",
+             "endTimeString":"2018-12-02",
+             "stopTimeString":"2018-12-05",
+             "submitOrSave":2,
+             "actLevel":"10221001",
+             "actLevelName":"A"},
+        "actDealerList":
+            [{"dealerCode":"JXS004"}],
+        "fileInfoDto"
+            :{"fileName":"活动接口.xlsx",
+              "fileDiskName":"活动接口.xlsx",
+              "fileType":10171003,
+              "filePath":"amp_dev/956dee485f334d1d83614e6444e6da5d.xlsx",
+              "fileSuffix":"xlsx",
+              "fileSize":"9",
+              "fileSizeUnit":"KB"}
+        }
 
 r = requests.post(url ,headers =headers ,json= body,verify=False)
 
-result = r.text
-
+result = r.json()
 print(result)
-
-
-
-
-
-
-
-
-
-
-
-
-

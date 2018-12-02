@@ -1,6 +1,7 @@
 import requests
 import urllib3
 urllib3.disable_warnings()
+#获取用户信息
 url = "https://test102.maxuscloud.cn/userService/current/userAndProxyInfo"
 
 headers = {

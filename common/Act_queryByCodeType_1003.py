@@ -1,6 +1,7 @@
 import requests
 import urllib3
 urllib3.disable_warnings()
+#活动状态是开启或者关闭
 url = "https://test102.maxuscloud.cn/ampService/tFixCodeWebController/queryByCodeType"
 
 headers = {
