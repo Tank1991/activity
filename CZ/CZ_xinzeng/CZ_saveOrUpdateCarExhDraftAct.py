@@ -6,8 +6,9 @@ from common.Login_xyx.get_UserJwtToken import *
 token = Get_Token_jwt().get_token()
 jwt = Get_Token_jwt().get_jwt()
 agent = Get_Token_jwt().get_User_Agent()
+host = Get_Token_jwt().get_host()
 
-url = "https://test34.maxuscloud.cn/ampService/actCarExhInfoWebController/saveOrUpdateCarExhDraftAct"
+url = "%s/ampService/actCarExhInfoWebController/saveOrUpdateCarExhDraftAct"%host
 
 headers = {
     "User-Agent":agent,
